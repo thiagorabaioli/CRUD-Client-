@@ -1,4 +1,4 @@
-package services;
+package tfr.CRUD.Client.services;
 
 
 import org.springframework.stereotype.Service;

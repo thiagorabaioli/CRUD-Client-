@@ -1,15 +1,29 @@
-package entities;
+package tfr.CRUD.Client.entities;
+
+
+
 
 import java.time.LocalDate;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "tb_client")
 public class Client {
 
+
+	
+	@Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String cpf;
     private Double income;
     private LocalDate birthDate;
     private Integer children;
+
+    public Client() {}
 
     public Client(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
         this.id = id;
@@ -67,4 +81,6 @@ public class Client {
     public void setChildren(Integer children) {
         this.children = children;
     }
+
+
 }

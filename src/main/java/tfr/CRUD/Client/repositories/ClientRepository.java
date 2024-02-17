@@ -1,6 +1,6 @@
-package repositories;
+package tfr.CRUD.Client.repositories;
 
-import entities.Client;
+import tfr.CRUD.Client.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

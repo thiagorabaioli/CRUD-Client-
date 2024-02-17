@@ -1,6 +1,6 @@
-package dto;
+package tfr.CRUD.Client.dto;
 
-import entities.Client;
+import tfr.CRUD.Client.entities.Client;
 
 import java.time.LocalDate;
 
@@ -12,6 +12,8 @@ public class ClientDTO {
     private LocalDate birthDate;
     private Integer children;
 
+    public ClientDTO(){}
+
     public ClientDTO(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
         this.id = id;
         this.name = name;
@@ -20,6 +22,7 @@ public class ClientDTO {
         this.birthDate = birthDate;
         this.children = children;
     }
+
     public ClientDTO(Client entity){
         id = entity.getId();
         name = entity.getName();
@@ -27,7 +30,6 @@ public class ClientDTO {
         income = entity.getIncome();
         birthDate = entity.getBirthDate();
         children = entity.getChildren();
-
     }
 
     public Long getId() {
