@@ -1,6 +1,7 @@
 package tfr.CRUD.Client.controller;
 
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +32,7 @@ public class ClientController {
         return ResponseEntity.ok(dto);
     }
     @PostMapping
-    public ClientDTO insert (@RequestBody ClientDTO dto){
+    public ClientDTO insert (@Valid @RequestBody ClientDTO dto){
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(dto.getId()).toUri();

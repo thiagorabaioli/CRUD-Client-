@@ -1,15 +1,24 @@
 package tfr.CRUD.Client.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 import tfr.CRUD.Client.entities.Client;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
     private Long id;
+    @NotBlank(message = "campo não pode ser vazio")
+    @Size(min =3, max = 80, message = "tamanho não é valido")
     private String name;
+    @NotBlank(message = "campo não pode ser vazio")
+    @Size(min =9, max = 9, message = "tamanho deve conter 9 número válido")
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "a data não pode ser futura")
     private LocalDate birthDate;
+
     private Integer children;
 
     public ClientDTO(){}
