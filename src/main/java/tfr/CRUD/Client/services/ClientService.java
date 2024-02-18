@@ -2,6 +2,8 @@ package tfr.CRUD.Client.services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import tfr.CRUD.Client.dto.ClientDTO;
 import tfr.CRUD.Client.entities.Client;
@@ -18,5 +20,10 @@ public class ClientService {
     public ClientDTO findById(Long id){
         Client entity = repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Object not found"));
         return new ClientDTO(entity);
+    }
+
+    public Page<ClientDTO> findPage(Pageable pageable){
+        Page<Client> entity = repo.findAll(pageable);
+        return entity.map(x -> new ClientDTO(x));
     }
 }
